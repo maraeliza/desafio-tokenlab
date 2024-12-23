@@ -1,0 +1,7 @@
+{
+    "basePath": "http://localhost:8080",
+    "registerUser": "/users/register",
+    "loginUser": "/users/login",
+    "addEventPath": "/events/add",
+    "getEventPath": "/events/getByIdUser"
+}

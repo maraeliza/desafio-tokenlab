@@ -1,0 +1,36 @@
+// content.js
+export default {
+  allDay: "Todo o dia",
+  previous: "Anterior",
+  next: "Próximo",
+  today: "Hoje",
+  month: "Mês",
+  week: "Semana",
+  day: "Dia",
+  agenda: "Agenda",
+  date: "Data",
+  time: "Hora",
+  event: "Evento",
+  noEventsInRange: "Nenhum evento neste período",
+  weekText: "Semana",
+  dayText: "Dia",
+  monthText: "Mês",
+  showMore: (total) => `+ Ver mais (${total})`,
+  // Tradução dos dias da semana
+  dayOfWeek: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+  // Tradução dos meses
+  monthNames: [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ],
+};
