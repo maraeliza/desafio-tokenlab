@@ -24,3 +24,19 @@ Primeiro, clone o repositório para a sua máquina local:
 ```bash
 git clone https://github.com/maraeliza/desafio-tokenlab.git
 cd desafio-tokenlab
+```
+### 2. Instalar as dependências
+Instale todas as dependências necessárias usando o npm:
+```bash
+npm install
+```
+
+### 3. Execute o comando no terminal para executar o programa em modo de desenvolvimento
+```bash
+npm run dev
+```
+🔗 Repositório do Backend
+O repositório do backend deste projeto pode ser acessado nesse link: https://github.com/maraeliza/desafio-token-lab-backend .
+
+
+
