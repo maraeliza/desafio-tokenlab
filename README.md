@@ -2,6 +2,8 @@
 
 Este repositório contém o **frontend** do projeto "Desafio TokenLab", uma aplicação desenvolvida com React e diversas outras tecnologias modernas. A aplicação foi projetada para ser rápida, eficiente e fácil de usar, com uma interface clean e responsiva.
 
+####Obs: é necessário a configuração do back-end para funcionar corretamente, veja mais aqui:  https://github.com/maraeliza/desafio-token-lab-backend
+
 ## 🚀 Tecnologias Usadas
 
 - **React**: Biblioteca JavaScript para construir interfaces de usuário interativas.
@@ -35,7 +37,7 @@ npm install
 ```bash
 npm run dev
 ```
-🔗 Repositório do Backend
+### 🔗 Repositório do Backend
 O repositório do backend deste projeto pode ser acessado nesse link: https://github.com/maraeliza/desafio-token-lab-backend .
 
 
