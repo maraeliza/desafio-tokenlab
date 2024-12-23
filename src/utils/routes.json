@@ -3,5 +3,7 @@
     "registerUser": "/users/register",
     "loginUser": "/users/login",
     "addEventPath": "/events/add",
-    "getEventPath": "/events/getByIdUser"
+    "getEventPath": "/events/getByIdUser",
+    "deleteEventPath": "/events/delete",
+    "updateEventPath": "/events/update"
 }

@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #003C30;
+  background: #4F86C6;
 }
 
 #root {
@@ -59,7 +59,7 @@ body {
 }
 
 .social-registro .social-button:hover {
-  border-color: #003C30;
+  border-color: #3f70a8;
   background: #f1eff9;
 }
 

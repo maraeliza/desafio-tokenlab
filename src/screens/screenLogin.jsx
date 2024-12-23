@@ -60,6 +60,8 @@ const ScreenLogin = () => {
 
   return (
     <section className="login-container">
+      <div className="icon"></div>
+
       <h2 className="form-title">LOGAR</h2>
       <form action="#" className="login-form" onSubmit={handleSubmit}>
         <InputField

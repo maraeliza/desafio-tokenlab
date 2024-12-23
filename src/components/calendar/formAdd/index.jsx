@@ -30,7 +30,7 @@ function FormAdd({ show, handleClose, addEvento }) {
         alert("A data início deve ser anterior à data de término");
         return;
       }
-      await enviarEvento(novoEvento);
+      await enviarEvento();
       setNovoEvento({
         title: "",
         start: "",
@@ -40,11 +40,11 @@ function FormAdd({ show, handleClose, addEvento }) {
         tipo: "",
         userId: "",
       });
-      handleClose(); // Fechar o modal após salvar
+      handleClose(); 
     }
   };
 
-  const enviarEvento = async (novoEvento) => {
+  const enviarEvento = async () => {
     if (!novoEvento) return "";
 
     try {
@@ -60,9 +60,8 @@ function FormAdd({ show, handleClose, addEvento }) {
         body: JSON.stringify(dados),
       });
 
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         const data = await response.json();
-        console.log(data);
         addEvento(dados);
       } else {
         console.log(response);

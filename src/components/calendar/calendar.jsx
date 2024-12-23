@@ -19,6 +19,7 @@ import ptBR from "date-fns/locale/pt-BR";
 
 import routes from "../../utils/routes.json";
 const GET_EVENT_ROUTE = routes.basePath + routes.getEventPath;
+const DELETE_EVENT_ROUTE = routes.basePath + routes.deleteEventPath;
 const DragAndDropCalendar = withDragAndDrop(Calendar);
 
 const locales = {
@@ -35,20 +36,8 @@ const localizer = dateFnsLocalizer({
 
 export default function Calendario() {
   const [showModal, setShowModal] = useState(false);
-
   const [eventoSelecionado, setEventoSelecionado] = useState(null);
-
-  const [showFormAdd, setShowFormAdd] = useState(false);
-  const [eventos, setEventos] = useState([
-    {
-      id: 1,
-      title: "Título",
-      desc: "Primeira atividade",
-      start: new Date(),
-      end: new Date(),
-      color: "red",
-    },
-  ]);
+  const [eventos, setEventos] = useState([]);
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 
@@ -58,15 +47,35 @@ export default function Calendario() {
   const handleEventClose = () => {
     setEventoSelecionado(null);
   };
-  const handleEventDelete = (eventId) => {
-    //Logica do banco
+  const handleEventDelete = async (eventId) => {
     const updatedEvents = eventos.filter((event) => event.id !== eventId);
+
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+
+    try {
+      const response = await fetch(DELETE_EVENT_ROUTE, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": token,
+        },
+        body: JSON.stringify({ userId: userId, eventId: eventId }),
+      });
+
+      if (response.ok) {
+        console.log("Evento deletado com sucesso");
+      } else {
+        console.log("Erro ao deletar o evento:", response.status);
+      }
+    } catch (error) {
+      console.error("Erro ao enviar a requisição DELETE:", error);
+    }
     setEventos(updatedEvents);
     setEventoSelecionado(null);
   };
 
   const handleEventUpdate = (updatedEvent) => {
-    //Logica do banco
     const updatedEvents = eventos.map((event) => {
       if (event.id === updatedEvent.id) {
         return updatedEvent;
@@ -100,26 +109,20 @@ export default function Calendario() {
         },
         body: JSON.stringify({ userId: userId }),
       });
-      console.log("acessando-------------");
       if (response.status == 201) {
-        console.log("STATUS ");
         const data = await response.json();
-        console.log(data);
         if (data.eventos) {
           for (let i = 0; i < data.eventos.length; i++) {
             var obj = {
-              id: 1,
+              id: data.eventos[i]._id,
               title: data.eventos[i]._title,
               desc: data.eventos[i]._desc,
               start: new Date(data.eventos[i]._start),
               end: new Date(data.eventos[i]._end),
               color: data.eventos[i]._color,
             };
-            console.log("Objeto criado --- ");
-            console.log(obj);
             listaEventos.push(obj);
           }
-
           setEventos(listaEventos);
         }
       } else {
@@ -131,7 +134,10 @@ export default function Calendario() {
   };
 
   const addEvento = (data) => {
-    setEventos([...eventos, data]);
+    console.log("-----------ADD EVENTO------------");
+    console.log("LISTA ANTES " + eventos);
+    setEventos((prevEventos) => [...prevEventos, data]);
+    console.log("LISTA DPS " + eventos);
   };
 
   useEffect(() => {
@@ -141,12 +147,12 @@ export default function Calendario() {
   return (
     <div>
       <Navbar />
-     
-      <button onClick={handleShow} className="btnShowFormAdd" >
+
+      <button onClick={handleShow} className="btnShowFormAdd">
         <i className="bi bi-calendar-plus" style={{ marginRight: "5px" }}></i>
         Adicionar Novo Evento
       </button>
-      <div >
+      <div>
         <FormAdd
           show={showModal}
           handleClose={handleClose}

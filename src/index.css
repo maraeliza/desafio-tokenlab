@@ -13,7 +13,9 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #4F86C6 !important;
+  background: #3179cc !important;
+  font-family: 'Montserrat' !important;
+  background: linear-gradient(180deg, #102440 0%, #1868a1 100%);
 }
 
 #root {

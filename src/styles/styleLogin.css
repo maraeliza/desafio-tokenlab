@@ -36,7 +36,7 @@
 }
 
 .social-login .social-button:hover {
-  border-color: #003C30;
+  border-color: #459BFF;
   background: #f1eff9;
 }
 
@@ -85,7 +85,7 @@
   font-size: 1rem;
   outline: none;
   border: none;
-  color: #003c30c4;
+  color: #1868A1;
   border-radius: 0.31rem;
   transition: border-color 0.3s ease;
   box-shadow:0px 0px 5px #b3b9d691;
@@ -110,7 +110,7 @@
 {
   top: -1.5rem; 
   font-size: 0.9rem;
-  color: #003C30; 
+  color: #1868A1; 
   transform: translateY(0); 
 }
 
@@ -123,7 +123,7 @@
   top: 50%;
   height: 100%;
   display: flex;
-  color: #003C30;
+  color: #4F86C6;
   align-items: center;
   transform: translateY(-50%);
   transition: 0.2s ease;
@@ -135,7 +135,7 @@
 }
 
 .login-form .input-field:focus ~ i:not(.eye-icon) {
-  color: #003C30;
+  color: #459BFF;
 }
 
 .login-form .input-wrapper i.eye-icon {
@@ -167,12 +167,12 @@
   cursor: pointer;
   margin-top: 2.19rem;
   border-radius: 0.31rem;
-  background: #003C30;
+  background: #1868A1;
   transition: 0.3s ease;
 }
 
 .login-form .login-button:hover {
-  background: rgb(22, 105, 105);
+  background: #2768b3;
 }
 
 .login-container .signup-prompt {
@@ -183,7 +183,7 @@
 }
 
 .login-container a {
-  color: #003C30;
+  color: #4F86C6;
   font-weight: 500;
   text-decoration: none;
 }
@@ -201,4 +201,15 @@
 
 .signup-text{
   margin-top: 1rem;
+}
+.icon {
+  width: 30vh;
+  height: 30vh;
+  background-image: url('../assets/cta_logo.svg');
+  background-size: cover;
+  position:absolute;
+  top:50%;
+  left:20%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
